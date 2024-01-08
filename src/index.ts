@@ -7,11 +7,13 @@ export type Plugins = {
     typography: boolean
 }
 
-export const isValidTailwindClass = async (str: string, plugins?:Plugins): Promise<boolean> => {
-    const css = `.cls{@apply ${str}}`;
+export type Result = { success: false } | { success: true, css: string }
+
+export const isValidTailwindClass = async (str: string, options?: { plugins?:Plugins, outputClass?: string }): Promise<Result> => {
+    const css = options?.outputClass ? `.${options?.outputClass} {@apply ${str}}` : `.cls{@apply ${str}}`;
     
     const PLUGINS: any[] = []
-    if(plugins?.typography) PLUGINS.push(typography)
+    if(options?.plugins?.typography) PLUGINS.push(typography)
 
     const processor = postcss([
         tailwindcss({
@@ -26,9 +28,9 @@ export const isValidTailwindClass = async (str: string, plugins?:Plugins): Promi
     ]);
 
     try {
-        await processor.process(css, { from: undefined })
-        return true
-    } catch (error) {        
-        return false
+        const res = await processor.process(css, { from: undefined })
+        return { success: true, css: res.css }
+    } catch (error: any) {        
+        return {  success: false }
     }
 }

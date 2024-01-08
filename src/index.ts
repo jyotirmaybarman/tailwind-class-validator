@@ -9,6 +9,9 @@ export type Plugins = {
 
 export const isValidTailwindClass = async (str: string, plugins?:Plugins): Promise<boolean> => {
     const css = `.cls{@apply ${str}}`;
+    
+    const PLUGINS: any[] = []
+    if(plugins?.typography) PLUGINS.push(typography)
 
     const processor = postcss([
         tailwindcss({
@@ -17,9 +20,7 @@ export const isValidTailwindClass = async (str: string, plugins?:Plugins): Promi
             theme: {
                 extend: {},
             },
-            plugins: [
-                plugins?.typography ? typography : undefined
-            ],
+            plugins: PLUGINS
         }),
         autoprefixer,
     ]);

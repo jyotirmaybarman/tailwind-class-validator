@@ -10,7 +10,7 @@ npm install @jyotirmay/tailwind-class-validator
 
 ```js
 // index.ts
-import { isValidTailwindClass } = from'@jyotirmay/tailwind-class-validator';
+import { isValidTailwindClass } from'@jyotirmay/tailwind-class-validator';
 
 (async ()=>{
     let res = await isValidTailwindClass("text-red-500", { /** Options */ })

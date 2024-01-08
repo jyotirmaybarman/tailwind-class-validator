@@ -1,5 +1,11 @@
 It validates whether a string (single / multiple separated by spaces) is a valid tailwind css class or not.
 
+### Installation
+
+```bash
+npm install @jyotirmay/tailwind-class-validator
+```
+
 ### Usage
 
 ```js

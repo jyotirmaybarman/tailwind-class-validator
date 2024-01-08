@@ -1,1 +1,1 @@
-Bare bone boilerplate to get started with Nodejs & Typescript quickly
+It validates whether a string (single / multiple separated by spaces) is a valid tailwind css class or not.

@@ -7,8 +7,16 @@
     "dev": "nodemon src/index.ts",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jyotirmaybarman/tailwind-class-validator.git"
+  },
+  "keywords": ["tailwindcss", "tailwind class validator"],
+  "author": "Jyotirmay Barman",
+  "bugs": {
+    "url": "https://github.com/jyotirmaybarman/tailwind-class-validator/issues"
+  },
+  "homepage": "https://github.com/jyotirmaybarman/tailwind-class-validator#readme",
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

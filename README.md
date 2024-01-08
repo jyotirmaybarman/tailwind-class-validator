@@ -9,8 +9,18 @@ import { isValidTailwindClass } = from'@jyotirmay/tailwind-class-validator';
 (async ()=>{
     let res = await isValidTailwindClass("text-red-500", { /** Options */ })
     console.log(res);
+    /*
+        Output: 
+        {
+            success: true,
+            css: '.cls {\n' +
+            '    --tw-text-opacity: 1;\n' +
+            '    color: rgb(239 68 68 / var(--tw-text-opacity))\n' +
+            '}'
+        }
+    */
 
-    // Example options
+    // With options
 
     let opts = { 
         plugins:{ 
@@ -21,6 +31,16 @@ import { isValidTailwindClass } = from'@jyotirmay/tailwind-class-validator';
 
     res = await isValidTailwindClass("text-red-500", opts)
     console.log(res);
+    /*
+        Output: 
+        {
+            success: true,
+            css: '.out {\n' +
+            '    --tw-text-opacity: 1;\n' +
+            '    color: rgb(239 68 68 / var(--tw-text-opacity))\n' +
+            '}'
+        }
+    */
 })()
 
 ```
